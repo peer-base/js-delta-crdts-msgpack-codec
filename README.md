@@ -14,7 +14,7 @@ $ npm install delta-crdts-msgpack-codec
 
 # API
 
-```
+```js
 const codec = require('delta-crdts-msgpack-codec')
 const delta = /// from the network
 

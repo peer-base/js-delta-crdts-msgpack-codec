@@ -23,6 +23,9 @@
   },
   "homepage": "https://github.com/ipfs-shipyard/js-delta-crdts-msgpack-codec#readme",
   "dependencies": {
+    "chai": "^4.2.0",
+    "dirty-chai": "^2.0.1",
+    "mocha": "^5.2.0",
     "msgpack-lite": "^0.1.26"
   }
 }

@@ -10,7 +10,17 @@ codec.addExtUnpacker(0x40, [msgpack.decode, mapUnpacker])
 codec.addExtPacker(0x41, Set, [setPacker, msgpack.encode])
 codec.addExtUnpacker(0x41, [msgpack.decode, setUnpacker])
 
-module.exports = codec
+const options = {
+  codec
+}
+
+exports.encode = function encode (value) {
+  return msgpack.encode(value, options)
+}
+
+exports.decode = function encode (value) {
+  return msgpack.decode(value, options)
+}
 
 function mapPacker (map) {
   return Array.from(map)

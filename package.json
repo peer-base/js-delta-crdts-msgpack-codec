@@ -1,0 +1,28 @@
+{
+  "name": "delta-crdts-msgpack-codec",
+  "version": "0.1.0",
+  "description": "Msgpack codec for delta-crdts",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipfs-shipyard/js-delta-crdts-msgpack-codec.git"
+  },
+  "keywords": [
+    "delta",
+    "crdts",
+    "msgpack",
+    "codec"
+  ],
+  "author": "IPFS Shipyard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ipfs-shipyard/js-delta-crdts-msgpack-codec/issues"
+  },
+  "homepage": "https://github.com/ipfs-shipyard/js-delta-crdts-msgpack-codec#readme",
+  "dependencies": {
+    "msgpack-lite": "^0.1.26"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "delta-crdts-msgpack-codec",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Msgpack codec for delta-crdts",
   "main": "src/index.js",
   "scripts": {

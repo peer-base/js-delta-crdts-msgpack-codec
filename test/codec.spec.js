@@ -8,7 +8,8 @@ const expect = chai.expect
 const codec = require('../')
 
 describe('codec', () => {
-  const encodable = [1, 'a', { b: 'c' }, new Set(['d']), new Map([['e', 'f']])]
+  // const encodable = [1, 'a', { b: 'c' }, new Set(['d']), new Map([['e', 'f']])]
+  const encodable = [1, 'a', { b: 'c' }, new Set(['d']), new Map([['e', new Set([new Map([['f', 'g']])])]])]
   let encoded
   it('encodes', () => {
     encoded = codec.encode(encodable)

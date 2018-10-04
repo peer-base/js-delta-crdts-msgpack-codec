@@ -1,39 +1,35 @@
 'use strict'
 
-const msgpack = require('msgpack-lite')
+const msgpack = require('msgpack5')()
+msgpack.register(0x40, Map, encodeMap, decodeMap)
+msgpack.register(0x41, Set, encodeSet, decodeSet)
 
-const codec = msgpack.createCodec()
+// codec.addExtPacker(0x40, Map, [mapPacker, msgpack.encode])
+// codec.addExtUnpacker(0x40, [msgpack.decode, mapUnpacker])
 
-codec.addExtPacker(0x40, Map, [mapPacker, msgpack.encode])
-codec.addExtUnpacker(0x40, [msgpack.decode, mapUnpacker])
+// codec.addExtPacker(0x41, Set, [setPacker, msgpack.encode])
+// codec.addExtUnpacker(0x41, [msgpack.decode, setUnpacker])
 
-codec.addExtPacker(0x41, Set, [setPacker, msgpack.encode])
-codec.addExtUnpacker(0x41, [msgpack.decode, setUnpacker])
+function encodeMap (map) {
+  return msgpack.encode(Array.from(map))
+}
 
-const options = {
-  codec
+function decodeMap (buf) {
+  return new Map(msgpack.decode(buf))
+}
+
+function encodeSet (set) {
+  return msgpack.encode(Array.from(set))
+}
+
+function decodeSet (buf) {
+  return new Set(msgpack.decode(buf))
 }
 
 exports.encode = function encode (value) {
-  return msgpack.encode(value, options)
+  return msgpack.encode(value)
 }
 
 exports.decode = function encode (value) {
-  return msgpack.decode(value, options)
-}
-
-function mapPacker (map) {
-  return Array.from(map)
-}
-
-function mapUnpacker (array) {
-  return new Map(array)
-}
-
-function setPacker (set) {
-  return Array.from(set)
-}
-
-function setUnpacker (array) {
-  return new Set(array)
+  return msgpack.decode(value)
 }
